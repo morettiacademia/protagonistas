@@ -1,0 +1,656 @@
+{
+  "site": {
+    "url": "https://academiadamagia.com.br",
+    "basePath": "/protagonistas",
+    "formEndpoint": "",
+    "_comment": "url + basePath geram canonical, Open Graph e sitemap. formEndpoint: URL que recebe POST JSON das candidaturas e avisos (vazio = só confirma na tela)."
+  },
+  "images": {
+    "_comment": "Mapa id-do-slot -> caminho da imagem (relativo a protagonistas/assets/img/). Slots sem imagem mostram o placeholder descritivo. Ex.: \"person-beca\": \"pessoas/beca.webp\""
+  },
+  "status": {
+    "aberta": {
+      "label": "INSCRIÇÕES ABERTAS",
+      "fg": "oklch(82% 0.14 150)",
+      "bg": "oklch(20% 0.05 165 / 0.92)"
+    },
+    "breve": {
+      "label": "EM BREVE",
+      "fg": "oklch(82% 0.11 222)",
+      "bg": "oklch(20% 0.05 245 / 0.92)"
+    },
+    "andamento": {
+      "label": "SELEÇÃO EM ANDAMENTO",
+      "fg": "oklch(84% 0.13 78)",
+      "bg": "oklch(22% 0.05 70 / 0.92)"
+    },
+    "encerrada": {
+      "label": "ENCERRADA",
+      "fg": "oklch(82% 0.01 250)",
+      "bg": "oklch(22% 0.02 260 / 0.92)"
+    }
+  },
+  "oportunidades": [
+    {
+      "slug": "protagonista-agir",
+      "title": "Protagonista AGIR",
+      "cats": [
+        "FORMAÇÃO"
+      ],
+      "status": "aberta",
+      "homeLabel": "EM DESTAQUE",
+      "headline": "Ajude a transformar experiência em implementação.",
+      "img": "foto: turma AGIR em aula",
+      "perfil": "Quem já viveu e aplicou o AGIR",
+      "local": "Online",
+      "prazo": "até 20 out 2026",
+      "periodo": "Nov 2026 – Fev 2027",
+      "periodoNote": "Encontros semanais com a turma, com agenda definida na integração.",
+      "mission": "Buscamos alguém que já viveu o AGIR, aplicou a metodologia em seu negócio e possa contribuir com quem está começando uma nova jornada.",
+      "live": [
+        "Os bastidores da condução de uma turma do AGIR",
+        "Troca direta com o time de formação da Academia",
+        "Um novo olhar sobre a sua própria jornada"
+      ],
+      "todo": [
+        "Participar dos encontros da turma",
+        "Compartilhar exemplos reais de aplicação",
+        "Apoiar dúvidas práticas dos participantes"
+      ],
+      "who": "Alguém que aplicou o AGIR de verdade, gosta de ajudar outras pessoas a destravar e consegue explicar com clareza o que fez — e por quê.",
+      "req": [
+        "Ter concluído o AGIR",
+        "Conhecer a metodologia",
+        "Demonstrar aplicação prática",
+        "Compartilhar evolução ou resultados",
+        "Ter disponibilidade no período"
+      ],
+      "know": [
+        "Como o AGIR entrou no seu negócio",
+        "O que mudou depois da aplicação",
+        "Um exemplo que você levaria para a turma"
+      ],
+      "gives": [
+        "Acesso à turma e aos bastidores do programa",
+        "Acompanhamento do time de formação",
+        "Reconhecimento como Protagonista AGIR"
+      ],
+      "asks": [
+        "Presença nos encontros combinados",
+        "Sigilo sobre dados dos participantes",
+        "Registro dos aprendizados do ciclo"
+      ],
+      "extra": [
+        {
+          "label": "Quando você concluiu o AGIR?",
+          "type": "text"
+        },
+        {
+          "label": "Conte uma aplicação da metodologia no seu negócio",
+          "type": "area"
+        }
+      ]
+    },
+    {
+      "slug": "bastidores-magic-makers-imagine",
+      "title": "Protagonista de Bastidores",
+      "subtitle": "Magic Makers Ao Vivo — Imagine",
+      "cats": [
+        "EVENTOS",
+        "EXPERIÊNCIAS"
+      ],
+      "status": "aberta",
+      "homeLabel": "MAIS RECENTE",
+      "headline": "Já imaginou ajudar a construir por dentro uma das maiores experiências da Academia?",
+      "img": "foto: bastidores do Magic Makers Ao Vivo",
+      "perfil": "Organização e olhar de experiência",
+      "local": "Presencial",
+      "prazo": "até 30 out 2026",
+      "periodo": "Pré-produção e evento",
+      "periodoNote": "Etapas de preparação online e presença nos dias do evento.",
+      "mission": "Uma oportunidade para acompanhar etapas dos bastidores, produção e experiência do Magic Makers Ao Vivo.",
+      "live": [
+        "A construção de um evento por dentro",
+        "Reuniões de produção com o time",
+        "O evento pelo lado de quem faz acontecer"
+      ],
+      "todo": [
+        "Apoiar etapas de produção",
+        "Contribuir com o olhar de quem já foi participante",
+        "Acompanhar a experiência nos dias do evento"
+      ],
+      "who": "Alguém organizado, colaborativo, atento a detalhes e que entende o que torna uma experiência memorável para quem participa.",
+      "req": [
+        "Já ter participado de um evento da Academia",
+        "Disponibilidade para as etapas presenciais",
+        "Facilidade para trabalhar em equipe"
+      ],
+      "know": [
+        "Uma experiência que você ajudou a organizar",
+        "O que você observa em um grande evento",
+        "Sua disponibilidade no período"
+      ],
+      "gives": [
+        "Acesso aos bastidores e à produção",
+        "Participação no evento",
+        "Convivência com o time da Academia"
+      ],
+      "asks": [
+        "Cumprir as etapas combinadas",
+        "Confidencialidade sobre a produção",
+        "Postura de equipe durante o evento"
+      ],
+      "extra": [
+        {
+          "label": "De quais eventos da Academia você já participou?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "slug": "anfitriao-magic-club",
+      "title": "Anfitrião Protagonista — Magic Club",
+      "cats": [
+        "COMUNIDADE"
+      ],
+      "status": "aberta",
+      "homeLabel": "CANDIDATURA ENCERRANDO",
+      "headline": "Ajude a gente a ouvir melhor a nossa própria comunidade.",
+      "img": "foto: encontro do Magic Club",
+      "perfil": "Escuta, conexão e presença",
+      "local": "Online · Magic Club",
+      "prazo": "até 5 out 2026",
+      "periodo": "Out – Dez 2026",
+      "periodoNote": "Participação contínua na comunidade ao longo do trimestre.",
+      "mission": "Conecte pessoas, identifique assuntos relevantes, acompanhe conversas e ajude a Academia a descobrir o que os membros querem aprender, discutir e viver.",
+      "live": [
+        "Uma relação próxima com os membros do Magic Club",
+        "Troca com o time de comunidade",
+        "A construção dos próximos temas da comunidade"
+      ],
+      "todo": [
+        "Acompanhar e estimular conversas",
+        "Identificar temas e necessidades dos membros",
+        "Compartilhar percepções com o time"
+      ],
+      "who": "Alguém que gosta de gente, escuta antes de falar e naturalmente conecta pessoas.",
+      "req": [
+        "Ser membro do Magic Club",
+        "Participação ativa na comunidade",
+        "Disponibilidade semanal"
+      ],
+      "know": [
+        "Como você participa hoje da comunidade",
+        "Uma conexão que você ajudou a criar",
+        "O que você acha que a comunidade precisa"
+      ],
+      "gives": [
+        "Espaço próximo ao time de comunidade",
+        "Participação na definição de temas",
+        "Reconhecimento como Anfitrião Protagonista"
+      ],
+      "asks": [
+        "Presença regular no período",
+        "Tom acolhedor e respeitoso",
+        "Retorno periódico ao time"
+      ],
+      "extra": [
+        {
+          "label": "Há quanto tempo você faz parte do Magic Club?",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "slug": "protagonista-ia",
+      "title": "Protagonista IA",
+      "cats": [
+        "FORMAÇÃO",
+        "CONTEÚDO"
+      ],
+      "status": "breve",
+      "homeLabel": "EM BREVE",
+      "headline": "Da descoberta à aplicação.",
+      "img": "foto: agente usando IA na operação",
+      "perfil": "IA aplicada na operação da agência",
+      "local": "Online",
+      "prazo": "Inscrições a partir de nov 2026",
+      "periodo": "1º trimestre de 2027",
+      "periodoNote": "Datas confirmadas na abertura das inscrições.",
+      "mission": "Uma oportunidade para quem incorporou Inteligência Artificial de verdade à operação da agência e pode contribuir com exemplos, experiências e implementação junto à Academia.",
+      "live": [
+        "Troca com o time que desenvolve os conteúdos de IA",
+        "Novos formatos de aprendizado",
+        "Contato com outros profissionais aplicando IA"
+      ],
+      "todo": [
+        "Compartilhar exemplos reais de uso",
+        "Contribuir com conteúdos e implementação",
+        "Apoiar quem está começando"
+      ],
+      "who": "Alguém que já usa IA no dia a dia da agência — não só testou, mas incorporou à operação.",
+      "req": [
+        "Uso real de IA na operação",
+        "Exemplos que possam ser mostrados",
+        "Disponibilidade no período"
+      ],
+      "know": [
+        "Como a IA entrou na sua rotina",
+        "Um processo que mudou",
+        "O que você ensinaria primeiro"
+      ],
+      "gives": [
+        "Acesso aos bastidores dos conteúdos de IA",
+        "Espaço para compartilhar sua aplicação",
+        "Reconhecimento como Protagonista IA"
+      ],
+      "asks": [
+        "Entregas combinadas no período",
+        "Compartilhar casos reais com responsabilidade"
+      ],
+      "extra": []
+    },
+    {
+      "slug": "curso-pratico-orlando",
+      "title": "Protagonista Curso Prático — Orlando",
+      "cats": [
+        "DESTINOS",
+        "EXPERIÊNCIAS",
+        "CONTEÚDO"
+      ],
+      "status": "encerrada",
+      "selected": "priscila-mior",
+      "headline": "Viver por dentro uma experiência prática da Academia em Orlando.",
+      "img": "foto: Curso Prático em Orlando",
+      "perfil": "Experiência no destino e comunicação",
+      "local": "Orlando, EUA",
+      "prazo": "Encerrada",
+      "periodo": "2026",
+      "periodoNote": "Experiência realizada durante o Curso Prático em Orlando.",
+      "mission": "Acompanhar uma experiência prática da Academia por dentro, conversar com os participantes, registrar experiências, mostrar bastidores e ajudar outras pessoas a enxergarem novas possibilidades.",
+      "live": [
+        "O Curso Prático por dentro",
+        "Os bastidores da experiência em Orlando",
+        "A convivência com a turma"
+      ],
+      "todo": [
+        "Registrar e compartilhar a experiência",
+        "Conversar com os participantes",
+        "Mostrar bastidores para a comunidade"
+      ],
+      "who": "Alguém com vivência no destino, facilidade de comunicação e vontade de mostrar a experiência pelo olhar de quem vive.",
+      "req": [
+        "Experiência prática no destino",
+        "Desenvoltura com conteúdo",
+        "Disponibilidade para a viagem"
+      ],
+      "know": [
+        "Sua relação com Orlando",
+        "Exemplos de conteúdo que você já produziu"
+      ],
+      "gives": [
+        "Participação na experiência em Orlando",
+        "Acesso aos bastidores"
+      ],
+      "asks": [
+        "Cobertura combinada da experiência",
+        "Presença durante o programa"
+      ],
+      "extra": []
+    }
+  ],
+  "protagonistas": [
+    {
+      "slug": "priscila-mior",
+      "name": "Priscila Mior",
+      "short": "Pri",
+      "typeLabel": "PROTAGONISTA · CORRESPONDENTE",
+      "role": "PROTAGONISTA · ORLANDO",
+      "spec": "Orlando · Experiência prática · Conteúdo e cobertura",
+      "tags": [
+        "Correspondentes",
+        "Destinos",
+        "Creators",
+        "Eventos"
+      ],
+      "bio": "Primeira Protagonista do novo formato: acompanha por dentro uma experiência prática da Academia em Orlando.",
+      "story": [
+        "A Pri entrou na Academia procurando um caminho para transformar uma paixão em profissão.",
+        "Vieram formações, experiências, prática e novos caminhos profissionais.",
+        "Agora, em Orlando, ela vive um novo capítulo — conversa com os participantes, registra experiências, mostra bastidores e ajuda outras pessoas a enxergarem novas possibilidades."
+      ],
+      "journey": [
+        {
+          "title": "Descobriu",
+          "text": "Chegou buscando transformar a paixão em profissão."
+        },
+        {
+          "title": "Aprendeu",
+          "text": "Formações sobre destinos e sobre o negócio de viagens."
+        },
+        {
+          "title": "Viveu",
+          "text": "Experiências práticas com a comunidade."
+        },
+        {
+          "title": "Aplicou",
+          "text": "Levou o que aprendeu para o dia a dia profissional."
+        },
+        {
+          "title": "Cresceu",
+          "text": "Novos caminhos profissionais no turismo."
+        },
+        {
+          "title": "Protagonizou",
+          "text": "Primeira Protagonista do novo formato, em Orlando."
+        }
+      ],
+      "opp": "curso-pratico-orlando",
+      "gallery": [
+        [
+          "VÍDEO · BASTIDORES",
+          "vídeo: bastidores em Orlando"
+        ],
+        [
+          "REELS · DIA 1",
+          "reels: primeiro dia"
+        ],
+        [
+          "FOTO · PARQUES",
+          "foto: Pri nos parques"
+        ],
+        [
+          "ENTREVISTA · PARTICIPANTES",
+          "vídeo: entrevista com participantes"
+        ],
+        [
+          "CONTEÚDO · DIÁRIO",
+          "foto: diário da experiência"
+        ]
+      ],
+      "quotes": [
+        "Eu entrei procurando um caminho para viver essa paixão. A cada etapa, fui descobrindo que existiam mais possibilidades do que eu imaginava."
+      ]
+    },
+    {
+      "slug": "beca",
+      "name": "Beca",
+      "short": "Beca",
+      "typeLabel": "PROTAGONISTA EXPERT",
+      "role": "PROTAGONISTA EXPERT",
+      "spec": "Guiamento Virtual · Rota Califórnia",
+      "tags": [
+        "Experts",
+        "Formação",
+        "Destinos"
+      ],
+      "bio": "Transforma a experiência com guiamento e roteiros em aprendizado para outros profissionais.",
+      "story": [
+        "Aluna da Academia, Beca transformou seu conhecimento em guiamento virtual e na Rota Califórnia em formação para outros agentes de viagens."
+      ],
+      "journey": [],
+      "opp": null,
+      "gallery": [
+        [
+          "VÍDEO · AULA",
+          "vídeo: trecho de aula"
+        ],
+        [
+          "FOTO · CALIFÓRNIA",
+          "foto: Rota Califórnia"
+        ],
+        [
+          "CONTEÚDO",
+          "foto: bastidores de gravação"
+        ]
+      ],
+      "quotes": []
+    },
+    {
+      "slug": "carol-guerra",
+      "name": "Carol Guerra",
+      "short": "Carol",
+      "typeLabel": "PROTAGONISTA EXPERT",
+      "role": "PROTAGONISTA EXPERT",
+      "spec": "Paris além da Disney",
+      "tags": [
+        "Experts",
+        "Formação",
+        "Destinos"
+      ],
+      "bio": "Compartilha com a comunidade o conhecimento de quem vive Paris muito além dos parques.",
+      "story": [
+        "Aluna da Academia, Carol transformou sua vivência em Paris em uma formação para profissionais que querem ir além da Disney."
+      ],
+      "journey": [],
+      "opp": null,
+      "gallery": [
+        [
+          "VÍDEO · AULA",
+          "vídeo: trecho de aula"
+        ],
+        [
+          "FOTO · PARIS",
+          "foto: Carol em Paris"
+        ],
+        [
+          "CONTEÚDO",
+          "foto: bastidores de gravação"
+        ]
+      ],
+      "quotes": []
+    },
+    {
+      "slug": "priscila-vargas",
+      "name": "Priscila Vargas",
+      "short": "Priscila",
+      "typeLabel": "PROTAGONISTA EXPERT",
+      "role": "PROTAGONISTA EXPERT",
+      "spec": "Moneys",
+      "tags": [
+        "Experts",
+        "Formação"
+      ],
+      "bio": "Transforma conhecimento e experiência em aprendizado para outros profissionais do turismo.",
+      "story": [
+        "Aluna da Academia, Priscila transformou sua especialidade em uma formação para outros profissionais do turismo."
+      ],
+      "journey": [],
+      "opp": null,
+      "gallery": [
+        [
+          "VÍDEO · AULA",
+          "vídeo: trecho de aula"
+        ],
+        [
+          "FOTO",
+          "foto: Priscila Vargas"
+        ],
+        [
+          "CONTEÚDO",
+          "foto: bastidores de gravação"
+        ]
+      ],
+      "quotes": []
+    }
+  ],
+  "tiposDeProtagonista": [
+    {
+      "titulo": "EXPERT",
+      "descricao": "Transforma conhecimento e experiência em aprendizado para outros profissionais."
+    },
+    {
+      "titulo": "CORRESPONDENTE",
+      "descricao": "Leva a comunidade para dentro de destinos, experiências e acontecimentos."
+    },
+    {
+      "titulo": "ANFITRIÃO",
+      "descricao": "Escuta, conecta e ajuda uma comunidade a acontecer."
+    },
+    {
+      "titulo": "CREATOR",
+      "descricao": "Transforma experiências e aprendizados em conteúdo."
+    },
+    {
+      "titulo": "BASTIDORES",
+      "descricao": "Participa da construção de projetos, eventos e experiências da Academia."
+    },
+    {
+      "titulo": "HOST",
+      "descricao": "Conduz conversas, entrevistas, conteúdos e encontros."
+    },
+    {
+      "titulo": "IMPLEMENTAÇÃO",
+      "descricao": "Ajuda a aproximar metodologia, experiência real e aplicação."
+    }
+  ],
+  "comoFunciona": [
+    {
+      "n": 1,
+      "titulo": "A Academia identifica uma oportunidade",
+      "texto": "Uma turma, projeto, evento, destino, conteúdo ou necessidade real."
+    },
+    {
+      "n": 2,
+      "titulo": "Publicamos no Mural de Oportunidades",
+      "texto": "Você conhece a missão, os pré-requisitos, o perfil procurado e o que aquela experiência envolve."
+    },
+    {
+      "n": 3,
+      "titulo": "Você se candidata",
+      "texto": "Conta sua trajetória e apresenta experiências, resultados ou conhecimentos relevantes para aquela oportunidade."
+    },
+    {
+      "n": 4,
+      "titulo": "Fazemos a curadoria",
+      "texto": "Analisamos as candidaturas considerando os critérios e necessidades daquela missão."
+    },
+    {
+      "n": 5,
+      "titulo": "Um novo Protagonista entra em cena",
+      "texto": "E passa a construir aquele capítulo junto com a Academia."
+    }
+  ],
+  "formularioBase": [
+    {
+      "key": "nome",
+      "label": "Nome completo",
+      "type": "text"
+    },
+    {
+      "key": "email",
+      "label": "E-mail",
+      "type": "email"
+    },
+    {
+      "key": "whats",
+      "label": "WhatsApp",
+      "type": "tel"
+    },
+    {
+      "key": "insta",
+      "label": "Instagram",
+      "type": "text",
+      "optional": true
+    },
+    {
+      "key": "cidade",
+      "label": "Cidade/Estado",
+      "type": "text"
+    },
+    {
+      "key": "relacao",
+      "label": "Relação com a Academia",
+      "type": "select",
+      "options": [
+        "Aluno(a) de cursos",
+        "Mentorado(a)",
+        "Membro do Magic Club",
+        "Ex-aluno(a)",
+        "Outro"
+      ]
+    },
+    {
+      "key": "cursos",
+      "label": "Cursos/formações realizados",
+      "type": "area",
+      "full": true
+    },
+    {
+      "key": "trajetoria",
+      "label": "Conte sua trajetória",
+      "type": "area",
+      "full": true
+    },
+    {
+      "key": "porque",
+      "label": "Por que essa oportunidade combina com você?",
+      "type": "area",
+      "full": true
+    },
+    {
+      "key": "contribuir",
+      "label": "O que você acredita que pode contribuir?",
+      "type": "area",
+      "full": true
+    },
+    {
+      "key": "links",
+      "label": "Links/materiais",
+      "type": "text",
+      "full": true,
+      "optional": true
+    }
+  ],
+  "filtrosOportunidades": [
+    "TODAS",
+    "CONTEÚDO",
+    "COMUNIDADE",
+    "FORMAÇÃO",
+    "EVENTOS",
+    "DESTINOS",
+    "EXPERIÊNCIAS"
+  ],
+  "filtrosHistorias": [
+    "Todos",
+    "Experts",
+    "Correspondentes",
+    "Creators",
+    "Comunidade",
+    "Eventos",
+    "Destinos",
+    "Formação"
+  ],
+  "podeSer": [
+    "estar diante das câmeras",
+    "estar nos bastidores",
+    "compartilhar conhecimento",
+    "acompanhar uma comunidade",
+    "participar de uma turma",
+    "cobrir uma experiência",
+    "contribuir com um projeto",
+    "subir ao palco",
+    "representar um destino"
+  ],
+  "contrapartidas": [
+    "ACESSO",
+    "EXPERIÊNCIA",
+    "VISIBILIDADE",
+    "DESENVOLVIMENTO",
+    "CONTRIBUIÇÃO"
+  ],
+  "etapasSelecao": [
+    "Análise das candidaturas pelo time",
+    "Conversa com pessoas pré-selecionadas",
+    "Definição conjunta da missão",
+    "Retorno para todas as candidaturas"
+  ],
+  "mosaicoFinal": [
+    "aluna em aula",
+    "Protagonista no palco",
+    "encontro da comunidade",
+    "Orlando",
+    "bastidores",
+    "turma em evento"
+  ]
+}
