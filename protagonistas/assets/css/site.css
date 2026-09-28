@@ -156,7 +156,7 @@ input::placeholder, textarea::placeholder { color: oklch(76% 0.03 250); }
 
 /* ---------- Header ---------- */
 .site-header {
-  position: sticky; top: 0; z-index: 60;
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 60;
   background: oklch(31% 0.115 255 / 0.88);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
