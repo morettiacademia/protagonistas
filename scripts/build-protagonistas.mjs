@@ -232,6 +232,7 @@ const filterButtons = (labels) =>
 const notifyForm = (id, label, kind, extraAttrs = '', center = false) => t`<form class="inline-form${center ? ' center' : ''}" data-form="${kind}"${extraAttrs}>
   <label for="${id}" class="sr-only">E-mail</label>
   <input id="${id}" class="input-pill" type="email" name="email" required placeholder="seu@email.com" autocomplete="email">
+  <div class="hp" aria-hidden="true"><label for="${id}-website">Não preencha este campo</label><input id="${id}-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
   <button type="submit" class="btn btn-primary">${label}</button>
   <p class="form-error" role="alert" hidden>Não foi possível enviar agora. Tente novamente em instantes.</p>
 </form>`;
@@ -527,6 +528,21 @@ ${closedOpps.length ? t`<section class="archive">
   });
 }
 
+// Critérios enviados junto com cada candidatura: a análise com IA no painel compara as respostas com eles.
+const oppCriteria = (o) => ({
+  titulo: o.title,
+  subtitulo: o.subtitle || '',
+  headline: o.headline,
+  missao: o.mission,
+  perfil: o.perfil,
+  quem: o.who,
+  requisitos: o.req,
+  conhecer: o.know,
+  fazer: o.todo,
+  local: o.local,
+  periodo: o.periodo,
+});
+
 function pageOpp(o) {
   const ctx = { P: '../../', page: 'opp' };
   const P = ctx.P;
@@ -561,9 +577,11 @@ function pageOpp(o) {
       <p class="intro">Não existe resposta certa. Queremos conhecer sua trajetória e o que você pode contribuir com esta missão.</p>
       <form class="form-grid" data-form="candidatura" data-opp="${esc(o.slug)}" data-opp-title="${esc(o.title)}">
         ${fields.map(fieldHtml)}
+        <div class="hp" aria-hidden="true"><label for="f-${esc(o.slug)}-website">Não preencha este campo</label><input id="f-${esc(o.slug)}-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <script type="application/json" data-criteria>${JSON.stringify(oppCriteria(o)).replace(/</g, '\\u003c')}</script>
         <p class="form-error" role="alert" hidden>Não foi possível enviar sua candidatura agora. Tente novamente em instantes.</p>
         <div class="form-foot">
-          <p>Todas as candidaturas passam por curadoria e recebem retorno.</p>
+          <p>Todas as candidaturas passam por curadoria e recebem retorno. Seus dados são usados só para avaliar esta candidatura, pelo time da Academia com apoio de inteligência artificial.</p>
           <button type="submit" class="btn btn-primary">ENVIAR CANDIDATURA</button>
         </div>
       </form>

@@ -57,14 +57,25 @@
     return respostas;
   }
 
+  function criteria(form) {
+    var el = form.querySelector('script[data-criteria]');
+    if (!el) return null;
+    try { return JSON.parse(el.textContent); } catch (e) { return null; }
+  }
+
+  // Envia como text/plain: é uma requisição "simples" (sem preflight CORS),
+  // o formato que o Google Apps Script aceita vindo de outro domínio.
   function send(payload) {
     if (!endpoint) return Promise.resolve();
     return fetch(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload),
     }).then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json().catch(function () { return { ok: true }; });
+    }).then(function (data) {
+      if (data && data.ok === false) throw new Error(data.erro || 'falha');
     });
   }
 
@@ -83,6 +94,7 @@
         tipo: kind,
         oportunidade: form.getAttribute('data-opp') || null,
         oportunidadeTitulo: form.getAttribute('data-opp-title') || null,
+        criterios: criteria(form),
         pagina: location.href,
         enviadoEm: new Date().toISOString(),
         respostas: collect(form),

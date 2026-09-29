@@ -686,3 +686,6 @@ input::placeholder, textarea::placeholder { color: oklch(76% 0.03 250); }
 /* Controles que dependem de JS ficam ocultos sem ele. */
 html:not(.js) .js-only { display: none; }
 [hidden] { display: none !important; }
+
+/* Campo-armadilha anti-spam: fora da tela para pessoas, visível para robôs. */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
