@@ -12,7 +12,7 @@
     "camila-photo": "pessoas/camila.webp",
     "opp-protagonista-agir": { "src": "oportunidades/agir.webp", "alt": "Logo AGIR", "fit": "contain", "pad": "12% 14%", "cardPad": "50px 22px 16px" },
     "opp-anfitriao-magic-club": { "src": "oportunidades/magic-club.webp", "alt": "Logo Magic Club", "fit": "contain", "bg": "#dddddd" },
-    "opp-bastidores-magic-makers-imagine": { "src": "oportunidades/imagine.webp", "alt": "Imagine — Magic Makers Ao Vivo 2027", "fit": "contain", "bg": "#01041e", "cardPad": "40px 0 0" }
+    "opp-bastidores-magic-makers-imagine": { "src": "oportunidades/imagine.webp", "alt": "Imagine — Magic Makers Ao Vivo", "fit": "contain", "bg": "#fefefe", "pad": "6% 8%", "cardPad": "34px 20px 10px" }
   },
   "status": {
     "aberta": {
