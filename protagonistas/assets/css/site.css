@@ -678,7 +678,8 @@ input::placeholder, textarea::placeholder { color: oklch(76% 0.03 250); }
 @media (max-width: 720px) {
   .section { padding-top: 90px; padding-bottom: 90px; }
   .mosaic { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .feature-media { min-height: 420px; }
+  .feature-media { min-height: 540px; }
+  .feature-mini { width: 32%; min-width: 110px; height: 132px; right: 10px; bottom: 10px; }
   .opp-aside { position: static; max-width: none; }
   .archive-cta { justify-content: flex-start; }
 }
