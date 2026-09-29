@@ -8,7 +8,8 @@
   "images": {
     "_comment": "Mapa id-do-slot -> caminho da imagem (relativo a protagonistas/assets/img/). Slots sem imagem mostram o placeholder descritivo. Ex.: \"person-becca\": \"pessoas/becca.webp\"",
     "person-becca": "pessoas/becca.webp",
-    "profile-hero-becca": "pessoas/becca.webp"
+    "profile-hero-becca": "pessoas/becca.webp",
+    "camila-photo": "pessoas/camila.webp"
   },
   "status": {
     "aberta": {
