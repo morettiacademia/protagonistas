@@ -6,7 +6,9 @@
     "_comment": "url + basePath geram canonical, Open Graph e sitemap. formEndpoint: URL que recebe POST JSON das candidaturas e avisos (vazio = só confirma na tela)."
   },
   "images": {
-    "_comment": "Mapa id-do-slot -> caminho da imagem (relativo a protagonistas/assets/img/). Slots sem imagem mostram o placeholder descritivo. Ex.: \"person-beca\": \"pessoas/beca.webp\""
+    "_comment": "Mapa id-do-slot -> caminho da imagem (relativo a protagonistas/assets/img/). Slots sem imagem mostram o placeholder descritivo. Ex.: \"person-beca\": \"pessoas/beca.webp\"",
+    "person-beca": "pessoas/beca.webp",
+    "profile-hero-beca": "pessoas/beca.webp"
   },
   "status": {
     "aberta": {
