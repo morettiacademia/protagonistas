@@ -65,7 +65,8 @@ const liveOpps = opps.filter((o) => !o.isClosed);
 const closedOpps = opps.filter((o) => o.isClosed);
 
 // Uma entrada de `images` pode ser só o caminho ("pessoas/x.webp") ou um objeto
-// { src, alt, fit: "contain", bg, pad, cardPad } para logos que não podem ser cortados.
+// { src, alt, fit: "contain", bg, pad, cardPad } para logos que não podem ser cortados,
+// ou { src, pos } para escolher o enquadramento de uma foto (ex.: "40% 45%").
 // cardPad é o espaçamento só nos cards (para o logo não ficar sob o selo de status).
 const imageCfg = (id) => {
   const v = images[id];
@@ -81,7 +82,9 @@ function slot(ctx, id, desc, cls = '') {
     const contain = cfg.fit === 'contain';
     const wrapStyle = cfg.bg ? ` style="background:${esc(cfg.bg)}"` : '';
     const cardPad = cfg.cardPad ? `;--card-pad:${esc(cfg.cardPad)}` : '';
-    const imgStyle = contain ? ` style="object-fit:contain;padding:${esc(cfg.pad || '0')}${cardPad}"` : '';
+    const imgStyle = contain
+      ? ` style="object-fit:contain;padding:${esc(cfg.pad || '0')}${cardPad}"`
+      : cfg.pos ? ` style="object-position:${esc(cfg.pos)}"` : '';
     return `<div class="slot${contain ? ' slot-logo' : ''} ${cls}"${wrapStyle}><img src="${ctx.P}assets/img/${esc(cfg.src)}" alt="${esc(cfg.alt || cleanDesc(desc))}" loading="lazy" decoding="async"${imgStyle}></div>`;
   }
   return `<div class="slot slot-empty ${cls}" aria-hidden="true" data-slot="${esc(id)}"><span>${esc(desc)}</span></div>`;
@@ -308,7 +311,7 @@ ${pri ? t`<section class="feature" aria-labelledby="pri-title">
   <div class="feature-card">
     <div class="feature-media">
       ${slot(ctx, 'pri-action-1', 'foto/vídeo real: Priscila Mior em Orlando com participantes')}
-      <div class="feature-mini">${slot(ctx, 'pri-action-video', 'reels: bastidores')}</div>
+      ${imageCfg('pri-action-video') || !imageCfg('pri-action-1') ? `<div class="feature-mini">${slot(ctx, 'pri-action-video', 'reels: bastidores')}</div>` : ''}
     </div>
     <div class="feature-copy">
       <p class="tag-live">PROTAGONISTA EM AÇÃO · ORLANDO</p>
