@@ -64,11 +64,25 @@ const opps = OPPS.map(decorateOpp);
 const liveOpps = opps.filter((o) => !o.isClosed);
 const closedOpps = opps.filter((o) => o.isClosed);
 
+// Uma entrada de `images` pode ser só o caminho ("pessoas/x.webp") ou um objeto
+// { src, alt, fit: "contain", bg, pad, cardPad } para logos que não podem ser cortados.
+// cardPad é o espaçamento só nos cards (para o logo não ficar sob o selo de status).
+const imageCfg = (id) => {
+  const v = images[id];
+  if (!v) return null;
+  return typeof v === 'string' ? { src: v } : v;
+};
+const imageSrc = (id) => imageCfg(id)?.src || null;
+
 // Slot de imagem: usa a imagem mapeada em `images`, senão mostra um placeholder descritivo.
 function slot(ctx, id, desc, cls = '') {
-  const src = images[id];
-  if (src) {
-    return `<div class="slot ${cls}"><img src="${ctx.P}assets/img/${esc(src)}" alt="${esc(cleanDesc(desc))}" loading="lazy" decoding="async"></div>`;
+  const cfg = imageCfg(id);
+  if (cfg) {
+    const contain = cfg.fit === 'contain';
+    const wrapStyle = cfg.bg ? ` style="background:${esc(cfg.bg)}"` : '';
+    const cardPad = cfg.cardPad ? `;--card-pad:${esc(cfg.cardPad)}` : '';
+    const imgStyle = contain ? ` style="object-fit:contain;padding:${esc(cfg.pad || '0')}${cardPad}"` : '';
+    return `<div class="slot${contain ? ' slot-logo' : ''} ${cls}"${wrapStyle}><img src="${ctx.P}assets/img/${esc(cfg.src)}" alt="${esc(cfg.alt || cleanDesc(desc))}" loading="lazy" decoding="async"${imgStyle}></div>`;
   }
   return `<div class="slot slot-empty ${cls}" aria-hidden="true" data-slot="${esc(id)}"><span>${esc(desc)}</span></div>`;
 }
@@ -516,6 +530,8 @@ ${closedOpps.length ? t`<section class="archive">
 function pageOpp(o) {
   const ctx = { P: '../../', page: 'opp' };
   const P = ctx.P;
+  // Logos não viram fundo do hero (o degradê os apagaria): aparecem num painel ao lado do título.
+  const heroLogo = imageCfg(`opp-${o.slug}`)?.fit === 'contain';
   const fields = [
     ...data.formularioBase,
     ...(o.extra || []).map((e, i) => ({ key: `extra_${i + 1}`, label: e.label, type: e.type, full: true, extra: true })),
@@ -590,18 +606,21 @@ function pageOpp(o) {
 
   const body = t`
 <article>
-  <section class="opp-hero">
-    ${slot(ctx, `opp-${o.slug}`, o.img)}
+  <section class="opp-hero${heroLogo ? ' has-logo' : ''}">
+    ${heroLogo ? '' : slot(ctx, `opp-${o.slug}`, o.img)}
     <div class="opp-hero-fade"></div>
     <div class="opp-hero-inner">
-      <p class="crumbs"><a href="${P}">Protagonistas</a> / <a href="../">Oportunidades</a></p>
-      <div class="opp-hero-tags">
-        ${badge(o, true)}
-        <span class="cats">${esc(o.catLine)}</span>
+      <div class="opp-hero-text">
+        <p class="crumbs"><a href="${P}">Protagonistas</a> / <a href="../">Oportunidades</a></p>
+        <div class="opp-hero-tags">
+          ${badge(o, true)}
+          <span class="cats">${esc(o.catLine)}</span>
+        </div>
+        <h1>${esc(o.title)}</h1>
+        ${o.subtitle ? `<p class="subtitle">${esc(o.subtitle)}</p>` : ''}
+        <p class="headline">${esc(o.headline)}</p>
       </div>
-      <h1>${esc(o.title)}</h1>
-      ${o.subtitle ? `<p class="subtitle">${esc(o.subtitle)}</p>` : ''}
-      <p class="headline">${esc(o.headline)}</p>
+      ${heroLogo ? `<div class="opp-hero-logo">${slot(ctx, `opp-${o.slug}`, o.img)}</div>` : ''}
     </div>
   </section>
 
@@ -680,7 +699,7 @@ function pageOpp(o) {
     body,
     active: 'opps',
     float: o.isOpen ? { href: '#candidatura', label: 'QUERO ME CANDIDATAR', apply: true } : null,
-    ogImage: images[`opp-${o.slug}`] ? abs(`assets/img/${images[`opp-${o.slug}`]}`) : null,
+    ogImage: imageSrc(`opp-${o.slug}`) ? abs(`assets/img/${imageSrc(`opp-${o.slug}`)}`) : null,
   });
 }
 
@@ -719,7 +738,7 @@ function pageProfile(p) {
   const ctx = { P: '../', page: 'profile' };
   const pOpp = p.opp && opps.find((o) => o.slug === p.opp);
   const quotesTitle = p.quotesTitle || 'O QUE ELA DESCOBRIU PELO CAMINHO';
-  const heroImg = images[`profile-hero-${p.slug}`] || images[`person-${p.slug}`];
+  const heroImg = imageSrc(`profile-hero-${p.slug}`) || imageSrc(`person-${p.slug}`);
   const body = t`
 <article>
   <section class="profile-top">

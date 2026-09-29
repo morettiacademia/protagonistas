@@ -500,6 +500,18 @@ input::placeholder, textarea::placeholder { color: oklch(76% 0.03 250); }
 .opp-hero .subtitle { font: 700 clamp(18px, 2vw, 24px) var(--font-display); color: var(--gold); margin: 0 0 10px; }
 .opp-hero .headline { font-size: clamp(18px, 1.8vw, 22px); line-height: 1.5; color: oklch(86% 0.02 250); margin: 14px 0 0; max-width: 760px; }
 
+/* Oportunidade com logo: texto à esquerda, logo num painel à direita (empilha no celular). */
+.opp-hero.has-logo .opp-hero-fade { display: none; }
+.opp-hero.has-logo .opp-hero-inner { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 40px 60px; padding-top: 90px; }
+.opp-hero-text { flex: 1 1 520px; min-width: 0; }
+.opp-hero-logo {
+  position: relative; flex: 0 1 440px; aspect-ratio: 16 / 9; max-width: 100%;
+  border-radius: 24px; overflow: hidden; border: 1px solid var(--border);
+}
+.slot-logo { background: var(--bg-card); }
+/* Nos cards, o logo desce para não ficar sob o selo de status. */
+.opp-media .slot-logo img[style*="--card-pad"] { padding: var(--card-pad) !important; }
+
 .opp-main { padding: 40px var(--pad-x) 110px; }
 .opp-cols { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 60px; align-items: flex-start; }
 .opp-content { flex: 1 1 560px; min-width: 0; }
