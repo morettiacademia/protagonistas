@@ -13,6 +13,7 @@
     "person-priscila-mior": "pessoas/priscila-mior.webp",
     "profile-hero-priscila-mior": "pessoas/priscila-mior.webp",
     "pri-action-1": { "src": "pessoas/turma-orlando.webp", "alt": "Turma da Academia da Magia com a Priscila Mior em frente ao castelo, em Orlando", "pos": "50% 58%" },
+    "final-m0": { "src": "mosaico/alunas.webp", "alt": "Alunas da Academia em frente ao castelo, em Orlando", "pos": "50% 58%" },
     "final-m1": { "src": "mosaico/palco.webp", "alt": "Turma e personagens no palco do Magic Makers Ao Vivo", "pos": "50% 60%" },
     "final-m2": { "src": "mosaico/comunidade.webp", "alt": "Alunos da comunidade reunidos em um evento da Academia" },
     "final-m3": { "src": "mosaico/orlando.webp", "alt": "Turma de capas de chuva num parque em Orlando" },
