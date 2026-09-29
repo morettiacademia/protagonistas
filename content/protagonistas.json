@@ -6,9 +6,9 @@
     "_comment": "url + basePath geram canonical, Open Graph e sitemap. formEndpoint: URL que recebe POST JSON das candidaturas e avisos (vazio = só confirma na tela)."
   },
   "images": {
-    "_comment": "Mapa id-do-slot -> caminho da imagem (relativo a protagonistas/assets/img/). Slots sem imagem mostram o placeholder descritivo. Ex.: \"person-beca\": \"pessoas/beca.webp\"",
-    "person-beca": "pessoas/beca.webp",
-    "profile-hero-beca": "pessoas/beca.webp"
+    "_comment": "Mapa id-do-slot -> caminho da imagem (relativo a protagonistas/assets/img/). Slots sem imagem mostram o placeholder descritivo. Ex.: \"person-becca\": \"pessoas/becca.webp\"",
+    "person-becca": "pessoas/becca.webp",
+    "profile-hero-becca": "pessoas/becca.webp"
   },
   "status": {
     "aberta": {
@@ -375,9 +375,9 @@
       ]
     },
     {
-      "slug": "beca",
-      "name": "Beca",
-      "short": "Beca",
+      "slug": "becca",
+      "name": "Becca",
+      "short": "Becca",
       "typeLabel": "PROTAGONISTA EXPERT",
       "role": "PROTAGONISTA EXPERT",
       "spec": "Guiamento Virtual · Rota Califórnia",
@@ -388,7 +388,7 @@
       ],
       "bio": "Transforma a experiência com guiamento e roteiros em aprendizado para outros profissionais.",
       "story": [
-        "Aluna da Academia, Beca transformou seu conhecimento em guiamento virtual e na Rota Califórnia em formação para outros agentes de viagens."
+        "Aluna da Academia, Becca transformou seu conhecimento em guiamento virtual e na Rota Califórnia em formação para outros agentes de viagens."
       ],
       "journey": [],
       "opp": null,

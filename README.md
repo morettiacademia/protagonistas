@@ -26,8 +26,8 @@ Todos os links são relativos, então o site funciona em qualquer caminho base.
 O build valida slugs, os vínculos `oportunidade.selected ↔ protagonista.opp` e os status.
 
 - **Status** de oportunidade: `aberta` (mostra formulário), `breve` (captura de e-mail), `andamento`, `encerrada` (liga ao perfil de quem foi selecionado).
-- **Fotos**: coloque o arquivo em `protagonistas/assets/img/` e mapeie o id do slot em `images` (ex.: `"person-beca": "pessoas/beca.webp"`). Slots sem imagem mostram um placeholder descrevendo o que entra ali. Ids usados: `person-<slug>`, `profile-hero-<slug>`, `gal-<slug>-<n>`, `opp-<slug>`, `pri-action-1`, `pri-action-video`, `camila-photo`, `final-m0`…`final-m5`.
+- **Fotos**: coloque o arquivo em `protagonistas/assets/img/` e mapeie o id do slot em `images` (ex.: `"person-becca": "pessoas/becca.webp"`). Slots sem imagem mostram um placeholder descrevendo o que entra ali. Ids usados: `person-<slug>`, `profile-hero-<slug>`, `gal-<slug>-<n>`, `opp-<slug>`, `pri-action-1`, `pri-action-video`, `camila-photo`, `final-m0`…`final-m5`.
 - **Formulários**: defina `site.formEndpoint` com uma URL que aceite `POST` JSON (ex.: webhook do Make/Zapier, Formspree, Apps Script). Vazio = o formulário só mostra a confirmação na tela, **sem enviar dados**.
 - **SEO**: `site.url` + `site.basePath` geram canonical, Open Graph e `protagonistas/sitemap.xml`.
 
-⚠️ Datas, requisitos, contrapartidas, jornada da Pri e bios da Beca/Carol/Priscila Vargas são conteúdo de exemplo do handoff — validar antes de publicar.
+⚠️ Datas, requisitos, contrapartidas, jornada da Pri e bios da Becca/Carol/Priscila Vargas são conteúdo de exemplo do handoff — validar antes de publicar.
