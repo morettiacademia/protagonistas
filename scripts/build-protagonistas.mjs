@@ -427,7 +427,13 @@ ${pri ? t`<section class="feature" aria-labelledby="pri-title">
 
 <section class="section culture">
   <div class="wrap-md split">
-    <div class="photo-45">${slot(ctx, 'camila-photo', 'foto real: Camila Moretti')}</div>
+    <figure class="culture-figure">
+      <figcaption class="culture-title">
+        <span class="culture-name">Camila Moretti</span>
+        <span class="culture-sub">De aluna a sócia.</span>
+      </figcaption>
+      <div class="photo-45">${slot(ctx, 'camila-photo', 'foto real: Camila Moretti')}</div>
+    </figure>
     <div>
       <p class="eyebrow">NOSSA CULTURA</p>
       <h2>Quando uma comunidade também revela talentos.</h2>

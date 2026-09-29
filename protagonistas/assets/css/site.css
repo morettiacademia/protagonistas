@@ -410,6 +410,10 @@ input::placeholder, textarea::placeholder { color: oklch(76% 0.03 250); }
 .culture .split { align-items: center; }
 /* A foto da Camila é uma colagem quase quadrada; o quadro segue a proporção dela para não cortar rostos. */
 .culture .photo-45 { aspect-ratio: 1768 / 1662; }
+.culture-figure { margin: 0; display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.culture-title { display: flex; flex-direction: column; gap: 6px; }
+.culture-name { font: 800 clamp(30px, 4vw, 48px)/1.05 var(--font-display); letter-spacing: -0.02em; }
+.culture-sub { font: 700 clamp(18px, 2vw, 22px) var(--font-display); color: var(--gold); }
 .photo-45 { position: relative; aspect-ratio: 4/5; border-radius: 26px; overflow: hidden; }
 .culture h2 { font: 800 clamp(28px, 3.6vw, 46px)/1.1 var(--font-display); letter-spacing: -0.02em; margin: 0 0 26px; }
 .culture .body { font-size: 17px; line-height: 1.75; color: var(--text-80); margin: 0 0 34px; }
