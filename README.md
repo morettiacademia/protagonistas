@@ -31,4 +31,4 @@ O build valida slugs, os vínculos `oportunidade.selected ↔ protagonista.opp` 
 - **Formulários**: `site.formEndpoint` recebe a URL do backend em [`apps-script/`](apps-script/README.md), que envia cada candidatura por e-mail para a diretoria, grava numa planilha e serve o painel administrativo com análise por IA. Vazio = o formulário só mostra a confirmação na tela, **sem enviar dados**.
 - **SEO**: `site.url` + `site.basePath` geram canonical, Open Graph e `protagonistas/sitemap.xml`.
 
-⚠️ Datas, requisitos, contrapartidas, jornada da Pri e bios da Becca/Carol/Priscila Vargas são conteúdo de exemplo do handoff — validar antes de publicar.
+⚠️ Datas, requisitos, contrapartidas, jornada da Pri e bios da Becca e da Carol são conteúdo de exemplo do handoff — validar antes de publicar.

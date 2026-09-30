@@ -617,7 +617,7 @@ input::placeholder, textarea::placeholder { color: oklch(76% 0.03 250); }
 .profile-story p { margin: 0 0 14px; }
 .section-110 { padding: 110px var(--pad-x); }
 .h2-md { font: 800 clamp(28px, 3.6vw, 46px) var(--font-display); margin: 0 0 50px; }
-.journey { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); }
+.journey { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
 .journey li { padding: 0 20px 0 0; }
 .journey-line { display: flex; align-items: center; margin: 0 0 20px; }
 .journey-line::after { content: ''; flex: 1; height: 1px; background: var(--border-3); }

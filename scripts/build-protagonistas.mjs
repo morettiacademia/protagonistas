@@ -786,8 +786,8 @@ function pageProfile(p) {
 
   ${p.journey.length ? t`<section class="section-110 bg-alt">
     <div class="wrap">
-      <p class="eyebrow">SUA JORNADA NA ACADEMIA</p>
-      <h2 class="h2-md">${esc(p.journey[0].title)} → ${esc(p.journey[p.journey.length - 1].title)}.</h2>
+      <p class="eyebrow">${esc(p.journeyLabel || 'SUA JORNADA NA ACADEMIA')}</p>
+      <h2 class="h2-md">${esc(p.journeyTitle || `${p.journey[0].title} → ${p.journey[p.journey.length - 1].title}.`)}</h2>
       <ol class="journey">
         ${p.journey.map((j) => t`<li>
           <div class="journey-line"><span class="journey-dot"></span></div>
