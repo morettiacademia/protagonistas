@@ -10,6 +10,7 @@
     "person-becca": "pessoas/becca.webp",
     "profile-hero-becca": "pessoas/becca.webp",
     "camila-photo": "pessoas/camila.webp",
+    "opp-protagonista-ia": { "src": "oportunidades/ia.webp", "alt": "Logo IA", "fit": "contain", "bg": "#000000" },
     "person-priscila-vargas": {
       "src": "pessoas/priscila-vargas.webp",
       "alt": "Priscila Vargas em frente ao castelo, em Orlando",
