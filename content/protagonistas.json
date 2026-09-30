@@ -10,6 +10,8 @@
     "person-becca": "pessoas/becca.webp",
     "profile-hero-becca": "pessoas/becca.webp",
     "camila-photo": "pessoas/camila.webp",
+    "person-priscila-vargas": { "src": "pessoas/priscila-vargas.webp", "alt": "Priscila Vargas em frente ao castelo, em Orlando", "pos": "50% 45%" },
+    "profile-hero-priscila-vargas": { "src": "pessoas/priscila-vargas.webp", "alt": "Priscila Vargas em frente ao castelo, em Orlando", "pos": "50% 45%" },
     "person-priscila-mior": "pessoas/priscila-mior.webp",
     "profile-hero-priscila-mior": "pessoas/priscila-mior.webp",
     "pri-action-1": { "src": "pessoas/turma-orlando.webp", "alt": "Turma da Academia da Magia com a Priscila Mior em frente ao castelo, em Orlando", "pos": "50% 58%" },
