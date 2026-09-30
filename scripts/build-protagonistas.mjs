@@ -891,5 +891,10 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${esc(abs(p))}</loc></url>`).join('\n')}\n</urlset>\n`,
 );
 
+writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${abs('sitemap.xml')}\n`);
+
+// Domínio próprio no GitHub Pages: quando o site fica na raiz de um (sub)domínio, grava o CNAME.
+if (!site.basePath) writeFileSync(join(OUT, 'CNAME'), `${new URL(site.url).host}\n`);
+
 if (!existsSync(join(OUT, 'assets/js/site.js'))) console.warn('Aviso: protagonistas/assets/js/site.js não encontrado.');
 console.log(`Geradas ${pages.length} páginas em protagonistas/`);

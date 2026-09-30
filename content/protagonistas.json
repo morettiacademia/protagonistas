@@ -1,18 +1,31 @@
 {
   "site": {
-    "url": "https://academiadamagia.com.br",
-    "basePath": "/protagonistas",
+    "url": "https://protagonistas.academiadamagia.com.br",
+    "basePath": "",
     "formEndpoint": "",
-    "_comment": "url + basePath geram canonical, Open Graph e sitemap. formEndpoint: URL que recebe POST JSON das candidaturas e avisos (vazio = só confirma na tela)."
+    "_comment": "url + basePath geram canonical, Open Graph, sitemap e o arquivo CNAME (domínio do GitHub Pages). formEndpoint: URL do Apps Script que recebe as candidaturas (vazio = só confirma na tela)."
   },
   "images": {
     "_comment": "Mapa id-do-slot -> caminho da imagem (relativo a protagonistas/assets/img/). Slots sem imagem mostram o placeholder descritivo. Ex.: \"person-becca\": \"pessoas/becca.webp\"",
     "person-becca": "pessoas/becca.webp",
     "profile-hero-becca": "pessoas/becca.webp",
     "camila-photo": "pessoas/camila.webp",
-    "person-carol-guerra": { "src": "pessoas/carol-guerra.webp", "alt": "Carol Guerra em frente ao castelo da Disneyland Paris", "pos": "55% 50%" },
-    "profile-hero-carol-guerra": { "src": "pessoas/carol-guerra.webp", "alt": "Carol Guerra em frente ao castelo da Disneyland Paris", "pos": "55% 50%" },
-    "opp-protagonista-ia": { "src": "oportunidades/ia.webp", "alt": "Logo IA", "fit": "contain", "bg": "#000000" },
+    "person-carol-guerra": {
+      "src": "pessoas/carol-guerra.webp",
+      "alt": "Carol Guerra em frente ao castelo da Disneyland Paris",
+      "pos": "55% 50%"
+    },
+    "profile-hero-carol-guerra": {
+      "src": "pessoas/carol-guerra.webp",
+      "alt": "Carol Guerra em frente ao castelo da Disneyland Paris",
+      "pos": "55% 50%"
+    },
+    "opp-protagonista-ia": {
+      "src": "oportunidades/ia.webp",
+      "alt": "Logo IA",
+      "fit": "contain",
+      "bg": "#000000"
+    },
     "person-priscila-vargas": {
       "src": "pessoas/priscila-vargas.webp",
       "alt": "Priscila Vargas em frente ao castelo, em Orlando",

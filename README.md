@@ -31,4 +31,12 @@ O build valida slugs, os vínculos `oportunidade.selected ↔ protagonista.opp` 
 - **Formulários**: `site.formEndpoint` recebe a URL do backend em [`apps-script/`](apps-script/README.md), que envia cada candidatura por e-mail para a diretoria, grava numa planilha e serve o painel administrativo com análise por IA. Vazio = o formulário só mostra a confirmação na tela, **sem enviar dados**.
 - **SEO**: `site.url` + `site.basePath` geram canonical, Open Graph e `protagonistas/sitemap.xml`.
 
+### Publicação (https://protagonistas.academiadamagia.com.br)
+
+O workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) gera as páginas e publica a pasta `protagonistas/` no GitHub Pages a cada push na branch padrão do repositório. O arquivo `CNAME` é gerado pelo build a partir de `site.url`.
+
+Configuração única:
+1. **DNS** (no painel onde o domínio academiadamagia.com.br é gerenciado): registro **CNAME**, nome `protagonistas`, valor `morettiacademia.github.io`.
+2. **GitHub › Settings › Pages**: *Source* = **GitHub Actions**; *Custom domain* = `protagonistas.academiadamagia.com.br`; depois que o certificado sair, marque **Enforce HTTPS**.
+
 ⚠️ Datas, requisitos, contrapartidas, jornada da Pri e bios da Becca e da Carol são conteúdo de exemplo do handoff — validar antes de publicar.
