@@ -2,7 +2,8 @@
 (function () {
   'use strict';
 
-  var endpoint = document.body.getAttribute('data-endpoint') || '';
+  var supabaseUrl = document.body.getAttribute('data-supabase-url') || '';
+  var supabaseKey = document.body.getAttribute('data-supabase-key') || '';
   var norm = function (s) {
     return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   };
@@ -63,19 +64,17 @@
     try { return JSON.parse(el.textContent); } catch (e) { return null; }
   }
 
-  // Envia como text/plain: é uma requisição "simples" (sem preflight CORS),
-  // o formato que o Google Apps Script aceita vindo de outro domínio.
+  // Grava no Supabase pela função protagonistas_enviar (a chave publishable só permite chamar ela).
+  // Sem projeto configurado, falha de propósito: o visitante vê o erro com o e-mail da diretoria
+  // em vez de uma confirmação falsa.
   function send(payload) {
-    if (!endpoint) return Promise.resolve();
-    return fetch(endpoint, {
+    if (!supabaseUrl || !supabaseKey) return Promise.reject(new Error('sem backend'));
+    return fetch(supabaseUrl + '/rest/v1/rpc/protagonistas_enviar', {
       method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json', apikey: supabaseKey },
+      body: JSON.stringify({ payload: payload }),
     }).then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json().catch(function () { return { ok: true }; });
-    }).then(function (data) {
-      if (data && data.ok === false) throw new Error(data.erro || 'falha');
     });
   }
 
