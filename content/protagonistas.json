@@ -2,7 +2,8 @@
   "site": {
     "url": "https://protagonistas.academiadamagia.com.br",
     "basePath": "",
-    "_comment": "url + basePath geram canonical, Open Graph, sitemap e o CNAME. supabase.url/publishableKey: projeto que recebe as candidaturas (a chave publishable/anon é pública por natureza; o acesso é controlado pelas regras do banco). Sem a chave, o formulário mostra erro com o e-mail da diretoria.",
+    "_comment": "url + basePath geram canonical, Open Graph, sitemap e o CNAME. supabase.url/publishableKey: projeto que recebe as candidaturas (a chave publishable/anon é pública por natureza; o acesso é controlado pelas regras do banco). Sem a chave, o formulário mostra erro com o e-mail da diretoria. ia: liga a análise com IA no painel (exige o segredo ANTHROPIC_API_KEY no Supabase); desligada, o painel e o formulário não mencionam IA.",
+    "ia": false,
     "supabase": {
       "url": "https://aldereysqsrdiehyrfkh.supabase.co",
       "publishableKey": "sb_publishable_TrKLD4FFMiM197zqbI2JJQ_s92lKfdP"

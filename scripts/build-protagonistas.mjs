@@ -590,7 +590,7 @@ function pageOpp(o) {
         <script type="application/json" data-criteria>${JSON.stringify(oppCriteria(o)).replace(/</g, '\\u003c')}</script>
         <p class="form-error" role="alert" hidden>Não foi possível enviar sua candidatura agora. Tente de novo em instantes ou envie suas respostas para diretoria@academiadamagia.com.br.</p>
         <div class="form-foot">
-          <p>Todas as candidaturas passam por curadoria e recebem retorno. Seus dados são usados só para avaliar esta candidatura, pelo time da Academia com apoio de inteligência artificial.</p>
+          <p>Todas as candidaturas passam por curadoria e recebem retorno. Seus dados são usados só para avaliar esta candidatura, pelo time da Academia${site.ia ? ' com apoio de inteligência artificial' : ''}.</p>
           <button type="submit" class="btn btn-primary">ENVIAR CANDIDATURA</button>
         </div>
       </form>
@@ -892,10 +892,10 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${esc(abs(p))}</loc></url>`).join('\n')}\n</urlset>\n`,
 );
 
-// Configuração pública do painel admin/ (URL do projeto e chave publishable do Supabase).
+// Configuração pública do painel admin/ (URL do projeto, chave publishable do Supabase e se a análise com IA está ligada).
 writeFileSync(
   join(OUT, 'assets/js/config.js'),
-  `window.PROTAGONISTAS_CONFIG = ${JSON.stringify({ supabaseUrl: site.supabase?.url || '', supabaseKey: site.supabase?.publishableKey || '' })};\n`,
+  `window.PROTAGONISTAS_CONFIG = ${JSON.stringify({ supabaseUrl: site.supabase?.url || '', supabaseKey: site.supabase?.publishableKey || '', ia: site.ia === true })};\n`,
 );
 
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${abs('sitemap.xml')}\n`);

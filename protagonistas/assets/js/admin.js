@@ -1,4 +1,4 @@
-// Programa Protagonistas — painel de curadoria (Supabase Auth + Edge Function protagonistas-ia).
+// Programa Protagonistas — painel de curadoria (Supabase Auth + Edge Function protagonistas-ia, se cfg.ia).
 (function () {
   var state = { apps: [], statuses: [], opp: 'todas', status: 'todos', sort: 'nota', q: '', selected: null, iaOk: true, busy: false };
   var $ = function (id) { return document.getElementById(id); };
@@ -12,6 +12,14 @@
     : null;
   state.statuses = STATUSES;
   state.iaOk = true;
+
+  // Análise com IA desligada (site.ia no JSON): some tudo que fala de IA e a lista vai por data.
+  var IA = cfg.ia === true;
+  if (!IA) {
+    state.sort = 'data';
+    $('sort').querySelector('[value="nota"]').remove();
+    document.querySelector('.actions').hidden = true;
+  }
 
   function toast(msg) {
     var t = $('toast'); t.textContent = msg; t.hidden = false;
@@ -103,12 +111,12 @@
     var items = visible();
     var labels = [];
     items.forEach(function (a) { a.respostas.forEach(function (r) { if (labels.indexOf(r.label) < 0) labels.push(r.label); }); });
-    var header = ['Recebida em', 'Oportunidade', 'Status', 'Nota IA', 'Aderência IA', 'Resumo IA', 'Anotações'].concat(labels);
+    var header = ['Recebida em', 'Oportunidade', 'Status'].concat(IA ? ['Nota IA', 'Aderência IA', 'Resumo IA'] : [], ['Anotações'], labels);
     var rows = items.map(function (a) {
       var byLabel = {};
       a.respostas.forEach(function (r) { byLabel[r.label] = r.valor; });
-      return [a.recebidaEm, a.oportunidadeTitulo, a.status, a.ia ? a.ia.nota : '', a.ia ? a.ia.aderencia : '', a.ia ? a.ia.resumo : '', a.notas]
-        .concat(labels.map(function (l) { return byLabel[l] || ''; }));
+      return [a.recebidaEm, a.oportunidadeTitulo, a.status]
+        .concat(IA ? [a.ia ? a.ia.nota : '', a.ia ? a.ia.aderencia : '', a.ia ? a.ia.resumo : ''] : [], [a.notas], labels.map(function (l) { return byLabel[l] || ''; }));
     });
     var csv = '\ufeff' + [header].concat(rows).map(function (r) { return r.map(csvCell).join(';'); }).join('\r\n');
     var link = document.createElement('a');
@@ -167,6 +175,7 @@
   }
 
   function scoreBadge(a, cls) {
+    if (!IA) return '';
     if (!a.ia) return '<span class="score ' + (cls || '') + '" title="Ainda não analisada">—</span>';
     return '<span class="score ' + esc(a.ia.aderencia) + ' ' + (cls || '') + '" title="Aderência ' + esc(a.ia.aderencia) + '">' + a.ia.nota + '</span>';
   }
@@ -222,7 +231,7 @@
 
   function renderDetail(a) {
     var d = $('detail');
-    if (!a) { d.innerHTML = '<div class="empty">Selecione uma candidatura para ver as respostas e a análise.</div>'; return; }
+    if (!a) { d.innerHTML = '<div class="empty">Selecione uma candidatura para ver as respostas' + (IA ? ' e a análise' : '') + '.</div>'; return; }
     d.innerHTML =
       '<button type="button" class="btn btn-line back" data-back>← Voltar à lista</button>' +
       '<h2>' + esc(a.nome) + '</h2>' +
@@ -236,7 +245,7 @@
         '<textarea id="notes" class="field">' + esc(a.notas) + '</textarea>' +
         '<div class="row" style="margin-top:10px"><button class="btn btn-gold" type="button" data-save>SALVAR</button></div>' +
       '</div>' +
-      '<div class="section"><p class="label">ANÁLISE DA IA</p>' + renderIa(a) + '</div>' +
+      (IA ? '<div class="section"><p class="label">ANÁLISE DA IA</p>' + renderIa(a) + '</div>' : '') +
       '<div class="section"><p class="label">RESPOSTAS</p>' + a.respostas.map(function (r) {
         return '<div class="answer"><p class="q">' + esc(r.label) + '</p><p>' + (r.valor ? esc(r.valor) : '<span class="note">—</span>') + '</p></div>';
       }).join('') + '<p class="note">Recebida em ' + esc(fmtDate(a.recebidaEm)) + ' · código ' + esc(a.id) + '</p></div>';
