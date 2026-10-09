@@ -1,0 +1,9 @@
+# Configuração usada pela Supabase CLI (projeto "Sistemas Academia da Magia").
+project_id = "aldereysqsrdiehyrfkh"
+
+[functions.protagonistas-ia]
+verify_jwt = true
+
+# Disparada pelo Database Webhook; protegida pelo cabeçalho x-webhook-secret.
+[functions.protagonistas-notificar]
+verify_jwt = false

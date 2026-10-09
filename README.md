@@ -2,7 +2,8 @@
 
 - `index.html` — landing page do **Kit do Protagonista**.
 - `protagonistas/` — hub do **Programa Protagonistas** (v2), gerado a partir de `content/protagonistas.json`.
-- `apps-script/` — backend das candidaturas (e-mail, planilha e painel administrativo com IA). Instalação em [`apps-script/README.md`](apps-script/README.md).
+- `supabase/` — banco das candidaturas, análise com IA e aviso por e-mail, no projeto Supabase *Sistemas Academia da Magia*. Instalação em [`supabase/README.md`](supabase/README.md).
+- `protagonistas/admin/` — painel de curadoria (login do Supabase), em `/admin/` do site.
 
 ## Programa Protagonistas
 
@@ -28,7 +29,7 @@ O build valida slugs, os vínculos `oportunidade.selected ↔ protagonista.opp` 
 
 - **Status** de oportunidade: `aberta` (mostra formulário), `breve` (captura de e-mail), `andamento`, `encerrada` (liga ao perfil de quem foi selecionado).
 - **Fotos**: coloque o arquivo em `protagonistas/assets/img/` e mapeie o id do slot em `images` (ex.: `"person-becca": "pessoas/becca.webp"`). Slots sem imagem mostram um placeholder descrevendo o que entra ali. Ids usados: `person-<slug>`, `profile-hero-<slug>`, `gal-<slug>-<n>`, `opp-<slug>`, `pri-action-1`, `pri-action-video`, `camila-photo`, `final-m0`…`final-m5`.
-- **Formulários**: `site.formEndpoint` recebe a URL do backend em [`apps-script/`](apps-script/README.md), que envia cada candidatura por e-mail para a diretoria, grava numa planilha e serve o painel administrativo com análise por IA. Vazio = o formulário só mostra a confirmação na tela, **sem enviar dados**.
+- **Formulários**: as candidaturas e os pedidos de aviso vão para o Supabase (`site.supabase.url` + `site.supabase.publishableKey`) pela função `protagonistas_enviar`. Sem a chave, o formulário mostra um erro com o e-mail da diretoria, nunca uma confirmação falsa. Ver [`supabase/README.md`](supabase/README.md).
 - **SEO**: `site.url` + `site.basePath` geram canonical, Open Graph e `protagonistas/sitemap.xml`.
 
 ### Publicação (https://protagonistas.academiadamagia.com.br)

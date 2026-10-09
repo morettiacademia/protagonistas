@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 
 Sitemap: https://protagonistas.academiadamagia.com.br/sitemap.xml

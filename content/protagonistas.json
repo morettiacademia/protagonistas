@@ -2,8 +2,11 @@
   "site": {
     "url": "https://protagonistas.academiadamagia.com.br",
     "basePath": "",
-    "formEndpoint": "",
-    "_comment": "url + basePath geram canonical, Open Graph, sitemap e o arquivo CNAME (domínio do GitHub Pages). formEndpoint: URL do Apps Script que recebe as candidaturas (vazio = só confirma na tela)."
+    "_comment": "url + basePath geram canonical, Open Graph, sitemap e o CNAME. supabase.url/publishableKey: projeto que recebe as candidaturas (a chave publishable/anon é pública por natureza; o acesso é controlado pelas regras do banco). Sem a chave, o formulário mostra erro com o e-mail da diretoria.",
+    "supabase": {
+      "url": "https://aldereysqsrdiehyrfkh.supabase.co",
+      "publishableKey": ""
+    }
   },
   "images": {
     "_comment": "Mapa id-do-slot -> caminho da imagem (relativo a protagonistas/assets/img/). Slots sem imagem mostram o placeholder descritivo. Ex.: \"person-becca\": \"pessoas/becca.webp\"",

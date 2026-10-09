@@ -19,7 +19,7 @@ const OUT = join(ROOT, 'protagonistas');
 const data = JSON.parse(readFileSync(join(ROOT, 'content/protagonistas.json'), 'utf8'));
 const { site, images, status: STATUS, oportunidades: OPPS, protagonistas: PEOPLE } = data;
 
-const RESERVED = new Set(['oportunidades', 'historias', 'assets', 'sitemap.xml']);
+const RESERVED = new Set(['oportunidades', 'historias', 'assets', 'admin', 'sitemap.xml', 'robots.txt', 'CNAME']);
 
 // ---------- validação ----------
 const errors = [];
@@ -132,7 +132,7 @@ function layout(ctx, { title, description, path, body, active, float, ogImage, j
 <script>document.documentElement.classList.add('js')</script>
 ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>` : ''}
 </head>
-<body data-endpoint="${esc(site.formEndpoint || '')}">
+<body data-supabase-url="${esc(site.supabase?.url || '')}" data-supabase-key="${esc(site.supabase?.publishableKey || '')}">
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
   <nav class="site-nav" aria-label="Protagonistas">
@@ -237,7 +237,7 @@ const notifyForm = (id, label, kind, extraAttrs = '', center = false) => t`<form
   <input id="${id}" class="input-pill" type="email" name="email" required placeholder="seu@email.com" autocomplete="email">
   <div class="hp" aria-hidden="true"><label for="${id}-website">Não preencha este campo</label><input id="${id}-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
   <button type="submit" class="btn btn-primary">${label}</button>
-  <p class="form-error" role="alert" hidden>Não foi possível enviar agora. Tente novamente em instantes.</p>
+  <p class="form-error" role="alert" hidden>Não foi possível enviar agora. Tente de novo em instantes ou escreva para diretoria@academiadamagia.com.br.</p>
 </form>`;
 
 // ---------- páginas ----------
@@ -588,7 +588,7 @@ function pageOpp(o) {
         ${fields.map(fieldHtml)}
         <div class="hp" aria-hidden="true"><label for="f-${esc(o.slug)}-website">Não preencha este campo</label><input id="f-${esc(o.slug)}-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
         <script type="application/json" data-criteria>${JSON.stringify(oppCriteria(o)).replace(/</g, '\\u003c')}</script>
-        <p class="form-error" role="alert" hidden>Não foi possível enviar sua candidatura agora. Tente novamente em instantes.</p>
+        <p class="form-error" role="alert" hidden>Não foi possível enviar sua candidatura agora. Tente de novo em instantes ou envie suas respostas para diretoria@academiadamagia.com.br.</p>
         <div class="form-foot">
           <p>Todas as candidaturas passam por curadoria e recebem retorno. Seus dados são usados só para avaliar esta candidatura, pelo time da Academia com apoio de inteligência artificial.</p>
           <button type="submit" class="btn btn-primary">ENVIAR CANDIDATURA</button>
@@ -866,9 +866,10 @@ function pageProfile(p) {
 }
 
 // ---------- escrita ----------
-// Remove páginas geradas anteriormente (tudo exceto assets/), para não deixar rotas órfãs.
+// Remove páginas geradas anteriormente (tudo exceto assets/ e o painel admin/, que são
+// arquivos fixos), para não deixar rotas órfãs.
 for (const entry of readdirSync(OUT, { withFileTypes: true })) {
-  if (entry.name === 'assets') continue;
+  if (entry.name === 'assets' || entry.name === 'admin') continue;
   rmSync(join(OUT, entry.name), { recursive: true, force: true });
 }
 
@@ -891,7 +892,13 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((p) => `  <url><loc>${esc(abs(p))}</loc></url>`).join('\n')}\n</urlset>\n`,
 );
 
-writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${abs('sitemap.xml')}\n`);
+// Configuração pública do painel admin/ (URL do projeto e chave publishable do Supabase).
+writeFileSync(
+  join(OUT, 'assets/js/config.js'),
+  `window.PROTAGONISTAS_CONFIG = ${JSON.stringify({ supabaseUrl: site.supabase?.url || '', supabaseKey: site.supabase?.publishableKey || '' })};\n`,
+);
+
+writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${abs('sitemap.xml')}\n`);
 
 // Domínio próprio no GitHub Pages: quando o site fica na raiz de um (sub)domínio, grava o CNAME.
 if (!site.basePath) writeFileSync(join(OUT, 'CNAME'), `${new URL(site.url).host}\n`);
