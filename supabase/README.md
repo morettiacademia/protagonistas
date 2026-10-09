@@ -23,7 +23,11 @@ Instalado pelo conector do Supabase:
 - `diretoria@academiadamagia.com.br` e `academiadamagia.mkt@gmail.com` liberados em `protagonistas_admins`;
 - site ligado à chave publishable.
 
-Faltam: os logins do painel (passo 2.1), o segredo `ANTHROPIC_API_KEY` (passo 4.2) e, se quiserem, o e-mail (passo 5).
+Login do painel criado para `diretoria@academiadamagia.com.br` e testado com uma candidatura real.
+
+**Análise com IA desligada** (`site.ia: false` em `content/protagonistas.json`): os critérios das vagas ainda são subjetivos demais para uma avaliação automática. O painel e o formulário não mencionam IA. A função `protagonistas-ia` continua publicada, mas sem o segredo `ANTHROPIC_API_KEY` ela não chama o Claude. Para ligar no futuro: cadastre o segredo (passo 4.2), troque para `"ia": true` e rode o build.
+
+Opcional: o e-mail para a diretoria (passo 5).
 
 ## Instalação
 
@@ -48,7 +52,7 @@ Em **Project Settings › API Keys**, copie a chave **publishable** (`sb_publish
 
 ⚠️ Nunca use a chave **secret / service_role** no site.
 
-### 4. Análise com IA (recomendado)
+### 4. Análise com IA (desligada por enquanto)
 1. **Edge Functions › Deploy a new function › Via Editor**, nome `protagonistas-ia`, cole `functions/protagonistas-ia/index.ts` › **Deploy**. Deixe *Verify JWT* **ligado**.
 2. **Edge Functions › Secrets**: `ANTHROPIC_API_KEY` = chave criada em https://platform.claude.com (*API Keys*; a conta precisa de créditos).
 
@@ -71,5 +75,5 @@ Pela CLI: `supabase secrets set ANTHROPIC_API_KEY=...` e `supabase functions dep
    - em *HTTP Headers*, adicione `x-webhook-secret` com o mesmo valor de `WEBHOOK_SECRET`.
 
 ## Onde ver as candidaturas
-- **Painel**: https://protagonistas.academiadamagia.com.br/admin/. Tem filtros, análise com IA, comparação, status, anotações e **Baixar CSV**.
+- **Painel**: https://protagonistas.academiadamagia.com.br/admin/. Tem filtros, busca, status, anotações e **Baixar CSV** (mais análise e comparação com IA, quando `site.ia` estiver ligado).
 - **Supabase**: Table Editor › `protagonistas_candidaturas`. A coluna `oportunidade` identifica cada vaga (ex.: `protagonista-agir`), e `respostas` guarda todas as respostas.

@@ -2,7 +2,7 @@
 
 - `index.html` — landing page do **Kit do Protagonista**.
 - `protagonistas/` — hub do **Programa Protagonistas** (v2), gerado a partir de `content/protagonistas.json`.
-- `supabase/` — banco das candidaturas, análise com IA e aviso por e-mail, no projeto Supabase *Sistemas Academia da Magia*. Instalação em [`supabase/README.md`](supabase/README.md).
+- `supabase/` — banco das candidaturas, análise com IA (desligada: `site.ia`) e aviso por e-mail, no projeto Supabase *Sistemas Academia da Magia*. Instalação em [`supabase/README.md`](supabase/README.md).
 - `protagonistas/admin/` — painel de curadoria (login do Supabase), em `/admin/` do site.
 
 ## Programa Protagonistas
