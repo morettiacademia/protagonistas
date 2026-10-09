@@ -15,6 +15,16 @@ Tudo usa o prefixo `protagonistas_` e não mexe nas outras tabelas do projeto.
 - **Admins, logados com e-mail e senha:** leem tudo e mudam o status e as anotações.
 - **A IA:** recebe as respostas e os critérios da oportunidade, mas não o e-mail, o WhatsApp nem o Instagram do candidato.
 
+## Situação (09/10/2026)
+
+Instalado pelo conector do Supabase:
+- migração aplicada (em 4 partes: `protagonistas_1_tabelas`, `protagonistas_2a_is_admin`, `protagonistas_2b_politicas`, `protagonistas_3_enviar`);
+- `protagonistas-ia` publicada;
+- `diretoria@academiadamagia.com.br` e `academiadamagia.mkt@gmail.com` liberados em `protagonistas_admins`;
+- site ligado à chave publishable.
+
+Faltam: os logins do painel (passo 2.1), o segredo `ANTHROPIC_API_KEY` (passo 4.2) e, se quiserem, o e-mail (passo 5).
+
 ## Instalação
 
 ### 1. Banco (obrigatório)

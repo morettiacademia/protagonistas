@@ -71,7 +71,8 @@ as $$
   );
 $$;
 
-revoke all on function public.protagonistas_is_admin() from public;
+-- No Supabase as funções novas também ganham EXECUTE direto para anon; fecha.
+revoke all on function public.protagonistas_is_admin() from public, anon;
 grant execute on function public.protagonistas_is_admin() to authenticated;
 
 grant select on public.protagonistas_candidaturas to authenticated;

@@ -8,8 +8,8 @@
 // Segredo necessário: ANTHROPIC_API_KEY (Edge Functions › Secrets).
 // SUPABASE_URL, SUPABASE_ANON_KEY e SUPABASE_SERVICE_ROLE_KEY já vêm do ambiente.
 
-import { createClient } from "npm:@supabase/supabase-js@2";
-import Anthropic from "npm:@anthropic-ai/sdk";
+import { createClient } from "npm:@supabase/supabase-js@2.117.3";
+import Anthropic from "npm:@anthropic-ai/sdk@0.132.1";
 
 const MODEL = "claude-opus-5-5";
 
