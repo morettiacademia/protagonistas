@@ -5,6 +5,7 @@
   --bg-base: oklch(31% 0.115 255);
   --bg-alt: oklch(35% 0.12 253);
   --bg-card: oklch(28% 0.1 256);
+  --bg-raised: oklch(42% 0.13 252);
   --bg-deep: oklch(26% 0.095 257);
   --bg-hover: oklch(24% 0.09 258);
   --bg-footer: oklch(22% 0.085 258);
@@ -262,7 +263,7 @@ input::placeholder, textarea::placeholder { color: oklch(76% 0.03 250); }
 .chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .chip {
   font: 700 14px var(--font-display); padding: 11px 18px; border-radius: 100px;
-  background: var(--bg-card); border: 1px solid var(--border-2);
+  background: var(--gold); border: 1px solid var(--gold); color: var(--ink-on-gold);
 }
 .chip-dashed { background: none; border: 1px dashed oklch(80% 0.13 78 / 0.7); color: var(--gold-link); }
 .what .statement { margin: 90px 0 0; padding-top: 50px; border-top: 1px solid var(--border-2); max-width: 900px; }
@@ -301,7 +302,7 @@ input::placeholder, textarea::placeholder { color: oklch(76% 0.03 250); }
 .head-row .h2 { max-width: 760px; }
 .grid-300 { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
 .role-card {
-  padding: 30px 28px 32px; border-radius: 22px; background: var(--bg-base); border: 1px solid var(--border);
+  padding: 30px 28px 32px; border-radius: 22px; background: var(--bg-raised); border: 1px solid var(--border-3);
   min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
   transition: background .25s, transform .25s, border-color .25s;
 }
